@@ -1,5 +1,7 @@
 # Personal Website — Figma Mobile v1 Implementation Plan
 
+> **STATUS: SUPERSEDED (2026-06)** — Project pivoted to **HTML + CSS on GitHub Pages**. Do not execute this plan. See upcoming `docs/superpowers/plans/2026-06-04-personal-website-static.md` (to be written via **writing-plans**). Design spec remains: `docs/superpowers/specs/2026-06-04-personal-website-design.md`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build two mobile frames (dark + light) for a terminal-inspired personal site on **one Figma page**, matching `docs/superpowers/specs/2026-06-04-personal-website-design.md`.

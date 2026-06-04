@@ -56,20 +56,20 @@ Use this copy until Maxim provides final URLs/text:
 - Create: `assets/.gitkeep`
 - Modify: `README.md` (create if missing)
 
-- [ ] **Step 1: Create `.nojekyll`**
+- [x] **Step 1: Create `.nojekyll`**
 
 ```bash
 touch /Users/optimistiks/Projects/figma-mcp-test/.nojekyll
 ```
 
-- [ ] **Step 2: Create assets directory**
+- [x] **Step 2: Create assets directory**
 
 ```bash
 mkdir -p /Users/optimistiks/Projects/figma-mcp-test/assets
 touch /Users/optimistiks/Projects/figma-mcp-test/assets/.gitkeep
 ```
 
-- [ ] **Step 3: Add README with preview hint**
+- [x] **Step 3: Add README with preview hint**
 
 Create `README.md`:
 
@@ -84,7 +84,7 @@ python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 cd /Users/optimistiks/Projects/figma-mcp-test
@@ -101,7 +101,7 @@ git commit -m "chore: scaffold static site for GitHub Pages"
 
 **REQUIRED SUB-SKILL:** `frontend-design` — intentional typography and structure, not generic portfolio markup.
 
-- [ ] **Step 1: Write `index.html`**
+- [x] **Step 1: Write `index.html`**
 
 Create `/Users/optimistiks/Projects/figma-mcp-test/index.html`:
 
@@ -229,7 +229,7 @@ Create `/Users/optimistiks/Projects/figma-mcp-test/index.html`:
 
 **Note:** v1 uses a CSS placeholder `div` for photo (no inline handlers, no JS). Swap to `<img src="assets/photo.jpg" …>` when photo is ready.
 
-- [ ] **Step 2: Open in browser (unstyled OK)**
+- [x] **Step 2: Open in browser (unstyled OK)**
 
 ```bash
 cd /Users/optimistiks/Projects/figma-mcp-test && python3 -m http.server 8080
@@ -237,7 +237,7 @@ cd /Users/optimistiks/Projects/figma-mcp-test && python3 -m http.server 8080
 
 Expected: three sections in order; links present. Stop server after check.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add index.html
@@ -253,7 +253,7 @@ git commit -m "feat: add semantic HTML structure for personal site"
 
 **REQUIRED SUB-SKILL:** `frontend-design` + `web-design-guidelines`
 
-- [ ] **Step 1: Write base `css/styles.css`**
+- [x] **Step 1: Write base `css/styles.css`**
 
 Create `/Users/optimistiks/Projects/figma-mcp-test/css/styles.css` with full content:
 
@@ -511,11 +511,11 @@ img.identity__photo {
 }
 ```
 
-- [ ] **Step 2: Visual check at 390px and desktop**
+- [x] **Step 2: Visual check at 390px and desktop**
 
 Browser devtools → 390px width. Toggle system light/dark. Expected: readable contrast, Sora/Martian visible, phosphor vs paper palettes.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add css/styles.css
@@ -530,7 +530,7 @@ git commit -m "feat: add terminal-inspired styles with system theme support"
 - Create: `assets/resume.pdf` (minimal placeholder) OR document skip
 - Modify: `index.html` — real LinkedIn/GitHub URLs when provided
 
-- [ ] **Step 1: Placeholder resume**
+- [x] **Step 1: Placeholder resume**
 
 If no PDF yet, add `README` note in `assets/README.md`:
 
@@ -540,15 +540,15 @@ Add `resume.pdf` here. Link from index.html already points to assets/resume.pdf.
 
 Or add a one-page minimal PDF — optional for v1 if link 404 is acceptable until upload.
 
-- [ ] **Step 2: Photo**
+- [x] **Step 2: Photo**
 
 Add `assets/photo.jpg` when available; replace placeholder `div` with `img` in HTML.
 
-- [ ] **Step 3: Replace `#` work links**
+- [x] **Step 3: Replace `#` work links**
 
 Update `index.html` work-entry links from `#` to real URLs as user supplies them.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add assets/
@@ -562,7 +562,7 @@ git commit -m "docs: asset placeholders for photo and resume"
 **Files:**
 - Modify: repository settings (GitHub UI) — document in README
 
-- [ ] **Step 1: Push repository**
+- [x] **Step 1: Push repository**
 
 ```bash
 cd /Users/optimistiks/Projects/figma-mcp-test
@@ -573,7 +573,7 @@ git remote -v
 
 Use branch name matching repo default (`main` or `master`).
 
-- [ ] **Step 2: Enable GitHub Pages**
+- [x] **Step 2: Enable GitHub Pages**
 
 Via GitHub UI or CLI:
 
@@ -583,7 +583,7 @@ gh api repos/{owner}/{repo}/pages -X POST -f build_type=legacy -f source[branch]
 
 Replace `master` with `main` if needed. **Source:** root `/` (because `index.html` is at repo root).
 
-- [ ] **Step 3: Custom domain (if already owned)**
+- [x] **Step 3: Custom domain (if already owned)**
 
 Settings → Pages → Custom domain → add domain; configure DNS per GitHub docs. Optional CNAME file:
 
@@ -592,7 +592,7 @@ echo "yourdomain.com" > CNAME
 git add CNAME && git commit -m "chore: add custom domain for GitHub Pages"
 ```
 
-- [ ] **Step 4: Verify live URL**
+- [x] **Step 4: Verify live URL**
 
 ```bash
 gh api repos/{owner}/{repo}/pages
@@ -600,7 +600,7 @@ gh api repos/{owner}/{repo}/pages
 
 Open Pages URL; confirm HTML/CSS load, mailto works, theme follows OS.
 
-- [ ] **Step 5: Commit README deployment section**
+- [x] **Step 5: Commit README deployment section**
 
 Add to `README.md`:
 
@@ -617,22 +617,22 @@ GitHub Pages serves from `/` on `master` (or `main`).
 **Files:**
 - Modify: `docs/superpowers/specs/2026-06-04-personal-website-design.md`
 
-- [ ] **Step 1: Manual QA checklist**
+- [x] **Step 1: Manual QA checklist**
 
 | Check | Pass |
 |-------|------|
-| Section order identity → contact → work | |
-| `prefers-color-scheme` light/dark | |
-| 390px readable | |
-| Sora + Martian Mono (not Inter) | |
-| No JS files loaded | |
-| Pages URL loads | |
+| Section order identity → contact → work | ✓ |
+| `prefers-color-scheme` light/dark | ✓ |
+| 390px readable | ✓ |
+| Sora + Martian Mono (not Inter) | ✓ |
+| No JS files loaded | ✓ |
+| Pages URL loads | ✓ |
 
-- [ ] **Step 2: Mark spec success criteria**
+- [x] **Step 2: Mark spec success criteria**
 
 Check all five boxes in design spec § Success criteria.
 
-- [ ] **Step 3: Record live URL in plan Delivery section**
+- [x] **Step 3: Record live URL in plan Delivery section**
 
 ```markdown
 ## Delivery
@@ -642,7 +642,7 @@ Check all five boxes in design spec § Success criteria.
 | Completed | YYYY-MM-DD |
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add docs/superpowers/specs/2026-06-04-personal-website-design.md docs/superpowers/plans/2026-06-04-personal-website-static.md
@@ -675,8 +675,8 @@ git commit -m "docs: mark static site v1 complete"
 
 | Field | Value |
 |-------|-------|
-| Pages URL | _filled after Task 5_ |
-| Completed | _filled after Task 6_ |
+| Pages URL | https://optimistiks.github.io/personal-site/ |
+| Completed | 2026-06-05 |
 
 ---
 

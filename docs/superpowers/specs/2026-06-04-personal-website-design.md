@@ -186,8 +186,8 @@ Prior plan `docs/superpowers/plans/2026-06-04-personal-website-figma.md` is **ca
 
 ## Success criteria
 
-- [ ] `index.html` + CSS render identity → contact → work in correct order  
-- [ ] Light and dark themes work via `prefers-color-scheme` (no JS)  
-- [ ] Mobile-first layout readable at ~390px; acceptable on desktop  
-- [ ] Typography: Sora + Martian Mono; colors per token table — not Inter/GitHub clone  
-- [ ] Site loads on GitHub Pages with working links (email, LinkedIn, GitHub, PDF)  
+- [x] `index.html` + CSS render identity → contact → work in correct order  
+- [x] Light and dark themes work via `prefers-color-scheme` (no JS)  
+- [x] Mobile-first layout readable at ~390px; acceptable on desktop  
+- [x] Typography: Sora + Martian Mono; colors per token table — not Inter/GitHub clone  
+- [x] Site loads on GitHub Pages with working links (email, LinkedIn, GitHub, PDF)  
