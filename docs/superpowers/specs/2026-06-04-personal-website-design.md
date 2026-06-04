@@ -1,25 +1,29 @@
-# Personal Website — Mobile Design Spec (Figma v1)
+# Personal Website — Design Spec (v1)
 
-**Status:** Approved in brainstorming (2026-06-04)  
-**Phase:** Figma designs only — no implementation in this spec  
+**Status:** Approved in brainstorming (2026-06-04); **implementation pivot** (2026-06) — HTML/CSS, not Figma  
+**Phase:** Visual + content spec (source of truth for the site)  
 **Owner:** Maxim Potapov  
 
 ## Summary
 
-A minimal, terminal-inspired personal site on a **single scrollable page**: identity → contact → work history. **Mobile-first** designs in Figma with **light and dark** themes and a theme-toggle pattern. No navigation, no project gallery, no blog in v1. Optimized for Figma **Starter (free)** by keeping all deliverables on **one Figma page**.
+A minimal, terminal-inspired personal site on a **single scrollable page**: identity → contact → work history. **Mobile-first**, **light and dark** themes, no navigation, no project gallery, no blog in v1.
+
+**First deliverable:** static **HTML + CSS** (no JavaScript in v1), hosted on **GitHub Pages**. Figma is out of scope; the existing Figma draft file is optional reference only.
 
 ## Goals
 
 | Goal | Detail |
 |------|--------|
-| Primary | Produce Figma frames ready for review before any code |
+| Primary | Ship a readable static site matching this spec |
 | Audience | Recruiters, peers, hiring managers — understand who you are, how to contact you, what you've built |
 | Tone | Terminal / engineer — distinctive, not generic “GitHub portfolio” |
-| Constraint | Free Figma plan; one Figma page per file |
+| Constraint | HTML + CSS only (v1); GitHub Pages hosting |
 
 ## Non-goals (v1)
 
-- Website code, hosting, CMS, analytics
+- JavaScript (including manual theme toggle UI — see Theming below)
+- Figma MCP / design-tool automation
+- CMS, analytics, backend
 - Desktop / tablet breakpoints
 - Blog or writing section (optional footnote only if needed later)
 - Project images, case-study cards, résumé bullet lists
@@ -41,7 +45,7 @@ Single page, scroll only, three blocks (top → bottom):
 - **Role** (one line)  
 - **Location · timezone**  
 - **Bio:** 2–4 lines max  
-- **Theme toggle:** top-right, 44px tap target, mono label `theme` or `◐`
+- **Theming (v1, no JS):** follow system via `prefers-color-scheme` in CSS; optional `◐` label is decorative only until JS is allowed later
 
 ### Contact block
 
@@ -129,32 +133,32 @@ Shared token names across light/dark frames.
 - Within work entry: 6px tight; 20px between entries  
 - Theme toggle: note `150ms` cross-fade for future implementation  
 
-## Figma deliverables (v1)
+## Implementation deliverables (v1)
 
-**File name suggestion:** `Personal Site — Mobile v1`  
-**Location:** User drafts (Personal Figma plan)  
-**Structure:** **One Figma page** (single canvas) containing:
+| Artifact | Purpose |
+|----------|---------|
+| `index.html` | Semantic structure: identity, contact, work list |
+| `css/styles.css` (or `styles.css` at root) | Tokens, layout, light/dark via CSS variables + `prefers-color-scheme` |
+| `assets/` (optional) | Photo, `resume.pdf`, favicon |
+| GitHub Pages | Publish from repo root or `/docs` per Pages settings |
 
-| On canvas | Content |
-|-----------|---------|
-| Left or top strip | Color + text style samples (foundations) |
-| Center | Frame `Mobile / Dark` — 390 × 844 |
-| Adjacent | Frame `Mobile / Light` — 390 × 844 |
-| Below or side | Components: work row, theme toggle, link line |
+### Suggested repo layout
 
-### Build order
-
-1. Color variables / styles (dark + light sets)  
-2. Text styles (Sora + Martian Mono)  
-3. Work row component (auto-layout, hug height)  
-4. Assemble **Mobile / Dark** with placeholder content  
-5. Duplicate → apply light tokens → **Mobile / Light**  
-6. Contrast + spacing QA pass  
+```
+index.html
+styles.css          # or css/styles.css
+assets/photo.jpg    # optional
+assets/resume.pdf   # optional
+```
 
 ### Placeholder content
 
 - Realistic name, role, location, timezone, 3-line bio  
 - 4 sample work rows with years, `ref:`, 2–3 links each, optional one-line description  
+
+### Superseded: Figma-first workflow
+
+Prior plan `docs/superpowers/plans/2026-06-04-personal-website-figma.md` is **cancelled**. Optional draft: [Figma file](https://www.figma.com/design/OMJffA0p6Ky6lEkdUgT0r5) — not required.
 
 ## Brainstorming decisions log
 
@@ -169,9 +173,9 @@ Shared token names across light/dark frames.
 | Work layout | Flat chronological list, newest first |
 | Work content | Names, years, ref, external links, optional short line; no images/bullets |
 | Identity | Role, location, timezone, bio, photo |
-| Figma scope | Mobile only first |
-| Figma plan | Free — single Figma page OK |
-| Code | Out of scope for this spec |
+| Implementation | HTML + CSS, GitHub Pages |
+| Theming | System light/dark (no JS v1) |
+| Figma | Superseded |
 
 ## Future phases (not in v1)
 
@@ -182,7 +186,8 @@ Shared token names across light/dark frames.
 
 ## Success criteria
 
-- [ ] Two mobile frames (dark/light) on one Figma page match this spec  
-- [ ] Identity, contact, and work blocks readable without explanation  
-- [ ] Visual system avoids generic GitHub/Inter portfolio clichés  
-- [ ] User approves Figma output before any coding starts  
+- [ ] `index.html` + CSS render identity → contact → work in correct order  
+- [ ] Light and dark themes work via `prefers-color-scheme` (no JS)  
+- [ ] Mobile-first layout readable at ~390px; acceptable on desktop  
+- [ ] Typography: Sora + Martian Mono; colors per token table — not Inter/GitHub clone  
+- [ ] Site loads on GitHub Pages with working links (email, LinkedIn, GitHub, PDF)  
