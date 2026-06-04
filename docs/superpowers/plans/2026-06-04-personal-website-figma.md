@@ -10,7 +10,7 @@
 
 **Spec reference:** `docs/superpowers/specs/2026-06-04-personal-website-design.md`
 
-**Record deliverable:** After Task 8, add `file_key` and `file_url` to `docs/superpowers/plans/2026-06-04-personal-website-figma.md` § Delivery.
+**Record deliverable:** Add `file_key` and `file_url` to § Delivery after **Task 0**; set `Completed` date after **Task 7**.
 
 ---
 
@@ -21,7 +21,7 @@
 | Design spec | `docs/superpowers/specs/2026-06-04-personal-website-design.md` | Source of truth |
 | This plan | `docs/superpowers/plans/2026-06-04-personal-website-figma.md` | Execution steps |
 | Figma file | Figma drafts — `Personal Site — Mobile v1` | All visual deliverables on **Page 1** |
-| Delivery log | Bottom of this plan file | `file_key`, `file_url` after build |
+| Delivery log | Bottom of this plan file | `file_key`, `file_url` after Task 0; `Completed` after Task 7 |
 
 No application code in this plan.
 
@@ -39,11 +39,11 @@ No application code in this plan.
 
 **Skills:** `figma-create-new-file` → `create_new_file`
 
-- [ ] **Step 1: Confirm account**
+- [x] **Step 1: Confirm account**
 
 Call MCP `whoami`. Expect `mail@potapovmax.com` and Personal plan key `team::1053724110161125624`.
 
-- [ ] **Step 2: Create design file**
+- [x] **Step 2: Create design file**
 
 ```json
 {
@@ -55,7 +55,7 @@ Call MCP `whoami`. Expect `mail@potapovmax.com` and Personal plan key `team::105
 
 Expected: `file_key` and `file_url` in response. Save both to this plan’s **Delivery** section.
 
-- [ ] **Step 3: Commit delivery stub**
+- [x] **Step 3: Commit delivery stub**
 
 ```bash
 cd /Users/optimistiks/Projects/figma-mcp-test
@@ -333,7 +333,7 @@ In `docs/superpowers/specs/2026-06-04-personal-website-design.md`, check the fou
 
 ```bash
 git add docs/superpowers/specs/2026-06-04-personal-website-design.md docs/superpowers/plans/2026-06-04-personal-website-figma.md
-git commit -m "docs: mark Figma v1 QA complete and record file URL"
+git commit -m "docs: mark Figma v1 QA complete"
 ```
 
 ---
@@ -355,7 +355,7 @@ Desktop frames, real copy swap, blog block, website code — separate specs/plan
 | Field | Value |
 |-------|-------|
 | `file_key` | `OMJffA0p6Ky6lEkdUgT0r5` |
-| `file_url` | https://www.figma.com/design/OMJffA0p6Ky6lEkdUgT0r5 |
+| `file_url` | [Personal Site — Mobile v1](https://www.figma.com/design/OMJffA0p6Ky6lEkdUgT0r5) |
 | Completed | _date after Task 7_ |
 
 ---
