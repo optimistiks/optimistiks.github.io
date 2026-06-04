@@ -71,16 +71,14 @@ git commit -m "docs: record Figma file for personal site mobile v1"
 **Skills:** `figma-use`, `figma-generate-library`  
 **MCP:** `use_figma` with `skillNames: "figma-use,figma-generate-library"`
 
-Replace `FILE_KEY` with actual `file_key` in all scripts below.
+**FILE_KEY:** `OMJffA0p6Ky6lEkdUgT0r5`
 
-- [ ] **Step 1: Create collection + modes + variables**
+**Starter plan note:** Figma Starter allows **1 mode per collection**. Use two collections (`theme` + `theme-dark`) instead of `addMode("Dark")`. Scopes must NOT combine `ALL_FILLS` with other fill scopes.
+
+- [ ] **Step 1: Create collections + variables (Starter-compatible)**
 
 ```javascript
-const collection = figma.variables.createVariableCollection("theme");
-const lightModeId = collection.modes[0].modeId;
-const darkModeId = collection.addMode("Dark");
-
-const vars = {};
+const SCOPES = ["FRAME_FILL", "SHAPE_FILL", "TEXT_FILL", "STROKE_COLOR"];
 const defs = [
   { name: "bg", light: { r: 0.949, g: 0.929, b: 0.902 }, dark: { r: 0.047, g: 0.055, b: 0.071 } },
   { name: "text", light: { r: 0.102, g: 0.094, b: 0.078 }, dark: { r: 0.910, g: 0.902, b: 0.890 } },
@@ -90,15 +88,37 @@ const defs = [
   { name: "border", light: { r: 0.851, g: 0.824, b: 0.784 }, dark: { r: 0.145, g: 0.161, b: 0.188 } },
 ];
 
+const lightCollection = figma.variables.createVariableCollection("theme");
+const lightModeId = lightCollection.modes[0].modeId;
+lightCollection.renameMode(lightModeId, "Light");
+
+const darkCollection = figma.variables.createVariableCollection("theme-dark");
+const darkModeId = darkCollection.modes[0].modeId;
+darkCollection.renameMode(darkModeId, "Dark");
+
+const lightVars = {};
+const darkVars = {};
 for (const d of defs) {
-  const v = figma.variables.createVariable(d.name, collection, "COLOR");
-  v.scopes = ["ALL_FILLS", "TEXT_FILL", "STROKE_COLOR"];
-  v.setValueForMode(lightModeId, d.light);
-  v.setValueForMode(darkModeId, d.dark);
-  vars[d.name] = v.id;
+  const lv = figma.variables.createVariable(d.name, lightCollection, "COLOR");
+  lv.scopes = SCOPES;
+  lv.setValueForMode(lightModeId, d.light);
+  lightVars[d.name] = lv.id;
+
+  const dv = figma.variables.createVariable(d.name, darkCollection, "COLOR");
+  dv.scopes = SCOPES;
+  dv.setValueForMode(darkModeId, d.dark);
+  darkVars[d.name] = dv.id;
 }
 
-return { collectionId: collection.id, lightModeId, darkModeId, variableIds: vars };
+return {
+  starterWorkaround: true,
+  collectionId: lightCollection.id,
+  darkCollectionId: darkCollection.id,
+  lightModeId,
+  darkModeId,
+  variableIds: lightVars,
+  darkVariableIds: darkVars,
+};
 ```
 
 - [ ] **Step 2: Verify**
@@ -293,9 +313,9 @@ Add child rectangle on screen frame, 2–3% opacity noise or subtle gray texture
 
 Duplicate `Mobile / Dark` → rename `Mobile / Light`, position x=900, y=40.
 
-- [ ] **Step 2: Swap variable mode to Light**
+- [ ] **Step 2: Apply light collection variables**
 
-Set explicit variable mode on light frame to collection’s Light mode; confirm bg `#F2EDE6`, text `#1A1814`, accent teal.
+Bind fills/text on light frame to `theme` collection variables (Starter: separate `theme` vs `theme-dark` collections — no mode swap). Confirm bg `#F2EDE6`, text `#1A1814`, accent teal.
 
 - [ ] **Step 3: Remove or soften noise overlay**
 
