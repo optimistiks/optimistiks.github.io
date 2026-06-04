@@ -354,8 +354,8 @@ Desktop frames, real copy swap, blog block, website code — separate specs/plan
 
 | Field | Value |
 |-------|-------|
-| `file_key` | _filled after Task 0_ |
-| `file_url` | _filled after Task 0_ |
+| `file_key` | `OMJffA0p6Ky6lEkdUgT0r5` |
+| `file_url` | https://www.figma.com/design/OMJffA0p6Ky6lEkdUgT0r5 |
 | Completed | _date after Task 7_ |
 
 ---
