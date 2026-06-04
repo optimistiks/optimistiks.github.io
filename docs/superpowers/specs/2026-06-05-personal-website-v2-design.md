@@ -182,14 +182,14 @@ Optional follow-up: split into `css/blocks/*.css` — out of scope unless plan a
 
 ## Success criteria
 
-- [ ] At 1280px+ viewport, content column ~42rem wide, centered; not locked to 28rem  
-- [ ] At 390px, layout unchanged from v1 intent (readable, padded)  
-- [ ] DOM: `main.page__content` wraps all sections; skip link targets `#main`  
-- [ ] All v2 BEM renames applied in HTML + CSS; no stale old class names  
-- [ ] Light: flat background, no horizontal rules  
-- [ ] Dark: subtle grain, no stripe/band artifacts  
-- [ ] No JavaScript added  
-- [ ] Local preview: `python3 -m http.server` — manual check light/dark + two widths  
+- [x] At 1280px+ viewport, content column ~42rem wide, centered; not locked to 28rem  
+- [x] At 390px, layout unchanged from v1 intent (readable, padded)  
+- [x] DOM: `main.page__content` wraps all sections; skip link targets `#main`  
+- [x] All v2 BEM renames applied in HTML + CSS; no stale old class names  
+- [x] Light: flat background, no horizontal rules  
+- [x] Dark: subtle grain, no stripe/band artifacts  
+- [x] No JavaScript added  
+- [x] Local preview: `python3 -m http.server` — manual check light/dark + two widths  
 
 ---
 
