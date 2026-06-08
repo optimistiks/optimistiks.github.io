@@ -63,3 +63,27 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## Cursor Cloud specific instructions
+
+### Project overview
+
+Static HTML/CSS personal portfolio (no JavaScript, no build step, no package manager). See `README.md` for local preview and GitHub Pages deploy notes.
+
+### Running locally
+
+From the repo root:
+
+```bash
+python3 -m http.server 8080
+```
+
+Open http://localhost:8080. Only Python 3 is required; there are no dependencies to install.
+
+### Lint / test
+
+No lint or test tooling is configured in this repository. Validation is manual: load the site in a browser and check layout, links, and `prefers-color-scheme` light/dark behavior.
+
+### Deploy
+
+Push to `master`; GitHub Pages serves the repo root. Live site: https://optimistiks.github.io/personal-site/
