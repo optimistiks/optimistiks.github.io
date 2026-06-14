@@ -1,8 +1,5 @@
 {
   "plugins": {
-    "figma": {
-      "enabled": true
-    },
     "superpowers": {
       "enabled": true
     }

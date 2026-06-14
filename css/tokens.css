@@ -1,0 +1,156 @@
+/* ════════════════════════════════════════════════════════
+   Design tokens — potapovmax.com
+   Catalog of reusable styles. Blocks consume via var().
+   Visual reference: /styleguide.html
+   ════════════════════════════════════════════════════════ */
+
+/* ── Catalog ───────────────────────────────────────────
+   Colors (7)
+     --bone, --ink, --soft, --faint, --rule, --accent, --green
+
+   Typography (8 text styles)
+     --text-display       Hero name — large uppercase display
+     --text-title         Section titles — semibold heading
+     --text-body          Long-form copy — soft color
+     --text-body-md       List row base — 17px body
+     --text-label-strong  Emphasized labels — bold uppercase
+     --text-label-muted   De-emphasized inline labels
+     --text-mono          Meta labels — mono 13px
+     --text-mono-sm       Fine print — mono 12px
+
+   Links (3 styles)
+     --link-default       Nav links — uppercase with underline hover
+     --link-accent        Accent-colored link (no hover color shift)
+     --link-secondary     Citation links — mono, faint, trailing arrow
+
+   Spacing & surface (8 tokens)
+     --space-page-y-top, --space-page-y-bottom, --space-page-x
+     --space-section, --space-section-lg, --space-row
+     --border-heavy, --border-light
+     --duration-fast, --duration-link
+   ─────────────────────────────────────────────────────── */
+
+/* ── Primitives ──────────────────────────────────────── */
+:root {
+  color-scheme: light dark;
+
+  /* color */
+  --bone: #ffffff;
+  --ink: #111110;
+  --soft: #4c4a46;
+  --faint: #807d78;
+  --rule: #dcdad6;
+  --accent: oklch(0.55 0.19 30);
+  --green: oklch(0.6 0.15 150);
+
+  /* font family */
+  --sans: "Archivo", Helvetica, sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bone: #131312;
+    --ink: #f0efec;
+    --soft: #b8b5af;
+    --faint: #8b8881;
+    --rule: #2f2e2c;
+    --accent: oklch(0.68 0.19 32);
+    --green: oklch(0.72 0.16 150);
+  }
+}
+
+/* ── Typography ──────────────────────────────────────── */
+:root {
+  /* display */
+  --text-display: 700 clamp(56px, 9.5vw, 132px) / 0.92 var(--sans);
+  --text-display-color: var(--ink);
+  --text-display-tracking: -0.04em;
+  --text-display-transform: uppercase;
+
+  /* title */
+  --text-title: 600 clamp(20px, 2vw, 26px) / 1.25 var(--sans);
+  --text-title-color: var(--ink);
+  --text-title-tracking: -0.01em;
+  --text-title-transform: none;
+
+  /* body */
+  --text-body: 400 clamp(16px, 1.4vw, 17px) / 1.55 var(--sans);
+  --text-body-color: var(--soft);
+  --text-body-tracking: normal;
+  --text-body-transform: none;
+
+  /* body-md */
+  --text-body-md: 400 17px / normal var(--sans);
+  --text-body-md-color: var(--ink);
+  --text-body-md-tracking: normal;
+  --text-body-md-transform: none;
+
+  /* label-strong */
+  --text-label-strong: 700 1em / normal var(--sans);
+  --text-label-strong-color: var(--ink);
+  --text-label-strong-tracking: 0.01em;
+  --text-label-strong-transform: uppercase;
+
+  /* label-muted */
+  --text-label-muted: 400 1em / normal var(--sans);
+  --text-label-muted-color: var(--faint);
+  --text-label-muted-tracking: normal;
+  --text-label-muted-transform: none;
+
+  /* mono */
+  --text-mono: 400 13px / normal var(--mono);
+  --text-mono-color: var(--faint);
+  --text-mono-tracking: 0.08em;
+  --text-mono-transform: none;
+
+  /* mono-sm */
+  --text-mono-sm: 400 12px / normal var(--mono);
+  --text-mono-sm-color: var(--faint);
+  --text-mono-sm-tracking: 0.08em;
+  --text-mono-sm-transform: none;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+:root {
+  --link-default: 600 16px / normal var(--sans);
+  --link-default-color: var(--ink);
+  --link-default-color-hover: var(--accent);
+  --link-default-tracking: 0.04em;
+  --link-default-transform: uppercase;
+
+  --link-accent: 600 16px / normal var(--sans);
+  --link-accent-color: var(--accent);
+  --link-accent-color-hover: var(--accent);
+  --link-accent-tracking: 0.04em;
+  --link-accent-transform: uppercase;
+
+  --link-secondary: 400 13px / 1.35 var(--mono);
+  --link-secondary-color: var(--faint);
+  --link-secondary-color-hover: var(--ink);
+  --link-secondary-arrow-color: var(--faint);
+  --link-secondary-arrow-color-hover: var(--accent);
+  --link-secondary-tracking: 0.04em;
+  --link-secondary-transform: none;
+}
+
+/* ── Spacing & surface ───────────────────────────────── */
+:root {
+  --space-page-y-top: clamp(36px, 7vh, 76px);
+  --space-page-y-bottom: clamp(28px, 4vh, 56px);
+  --space-page-x: clamp(20px, 6vw, 110px);
+
+  --space-section: clamp(36px, 6vh, 56px);
+  --space-section-lg: clamp(40px, 7vh, 64px);
+  --space-section-sm: clamp(24px, 4vh, 36px);
+  --space-row: 14px 0;
+
+  --border-heavy: 2px solid var(--ink);
+  --border-light: 1px solid var(--rule);
+
+  --duration-fast: 200ms var(--ease-out);
+  --duration-link: 150ms var(--ease-out);
+}

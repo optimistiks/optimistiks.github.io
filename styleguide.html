@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design system — potapovmax.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bone);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.4;
+        padding: var(--space-page-y-top) var(--space-page-x)
+          var(--space-page-y-bottom);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font: var(--text-title);
+        color: var(--text-title-color);
+        letter-spacing: var(--text-title-tracking);
+        margin-bottom: 8px;
+      }
+
+      .intro {
+        font: var(--text-body);
+        color: var(--text-body-color);
+        margin-bottom: var(--space-section-lg);
+        max-width: 40em;
+      }
+
+      section {
+        margin-bottom: var(--space-section-lg);
+      }
+
+      .section-title {
+        font: var(--text-mono);
+        color: var(--text-mono-color);
+        letter-spacing: var(--text-mono-tracking);
+        text-transform: uppercase;
+        padding-bottom: 12px;
+        border-bottom: var(--border-light);
+        margin-bottom: 24px;
+      }
+
+      .swatch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+      }
+
+      .swatch {
+        border: var(--border-light);
+        overflow: hidden;
+      }
+
+      .swatch__color {
+        height: 48px;
+      }
+
+      .swatch__name {
+        font: var(--text-mono-sm);
+        color: var(--text-mono-sm-color);
+        letter-spacing: var(--text-mono-sm-tracking);
+        padding: 8px;
+      }
+
+      .specimen {
+        padding: 20px 0;
+        border-bottom: var(--border-light);
+      }
+
+      .specimen:last-child {
+        border-bottom: none;
+      }
+
+      .specimen__sample {
+        margin-bottom: 10px;
+      }
+
+      .specimen__meta {
+        font: var(--text-mono-sm);
+        color: var(--text-mono-sm-color);
+        letter-spacing: var(--text-mono-sm-tracking);
+      }
+
+      .specimen__meta code {
+        font: inherit;
+        color: var(--ink);
+      }
+
+      .type-display {
+        font: var(--text-display);
+        color: var(--text-display-color);
+        letter-spacing: var(--text-display-tracking);
+        text-transform: var(--text-display-transform);
+      }
+
+      .type-title {
+        font: var(--text-title);
+        color: var(--text-title-color);
+        letter-spacing: var(--text-title-tracking);
+      }
+
+      .type-body {
+        font: var(--text-body);
+        color: var(--text-body-color);
+        max-width: 36em;
+      }
+
+      .type-body-md {
+        font: var(--text-body-md);
+        color: var(--text-body-md-color);
+      }
+
+      .type-label-strong {
+        font: var(--text-label-strong);
+        color: var(--text-label-strong-color);
+        letter-spacing: var(--text-label-strong-tracking);
+        text-transform: var(--text-label-strong-transform);
+      }
+
+      .type-label-muted {
+        font: var(--text-label-muted);
+        color: var(--text-label-muted-color);
+        text-transform: var(--text-label-muted-transform);
+      }
+
+      .type-mono {
+        font: var(--text-mono);
+        color: var(--text-mono-color);
+        letter-spacing: var(--text-mono-tracking);
+      }
+
+      .type-mono-sm {
+        font: var(--text-mono-sm);
+        color: var(--text-mono-sm-color);
+        letter-spacing: var(--text-mono-sm-tracking);
+      }
+
+      .link-default {
+        font: var(--link-default);
+        color: var(--link-default-color);
+        letter-spacing: var(--link-default-tracking);
+        text-transform: var(--link-default-transform);
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 3px;
+        display: inline-block;
+      }
+
+      .link-default::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--duration-fast);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .link-default:hover {
+          color: var(--link-default-color-hover);
+        }
+        .link-default:hover::after {
+          transform: scaleX(1);
+        }
+      }
+
+      .link-accent {
+        font: var(--link-accent);
+        color: var(--link-accent-color);
+        letter-spacing: var(--link-accent-tracking);
+        text-transform: var(--link-accent-transform);
+        text-decoration: none;
+      }
+
+      .link-secondary {
+        font: var(--link-secondary);
+        color: var(--link-secondary-color);
+        letter-spacing: var(--link-secondary-tracking);
+        text-transform: var(--link-secondary-transform);
+        text-decoration: none;
+        transition: color var(--duration-link);
+      }
+
+      .link-secondary::after {
+        content: "↗";
+        margin-left: 0.2em;
+        color: var(--link-secondary-arrow-color);
+        transition: color var(--duration-link);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .link-secondary:hover {
+          color: var(--link-secondary-color-hover);
+        }
+        .link-secondary:hover::after {
+          color: var(--link-secondary-arrow-color-hover);
+        }
+      }
+
+      .surface-list {
+        font: var(--text-mono-sm);
+        color: var(--text-mono-sm-color);
+        letter-spacing: var(--text-mono-sm-tracking);
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .surface-list code {
+        color: var(--ink);
+      }
+
+      .surface-demo {
+        margin-top: 16px;
+        padding: 16px;
+        border-top: var(--border-heavy);
+      }
+
+      .surface-demo--light {
+        border-top: var(--border-light);
+        margin-top: 8px;
+        padding-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Design system</h1>
+    <p class="intro">
+      Token reference for potapovmax.com. Open <code>css/tokens.css</code> for
+      the full catalog comment. Blocks consume tokens via <code>var()</code> —
+      no utility classes in HTML.
+    </p>
+
+    <section aria-labelledby="colors-heading">
+      <h2 class="section-title" id="colors-heading">Colors — 7</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--bone)"></div>
+          <div class="swatch__name">--bone</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--ink)"></div>
+          <div class="swatch__name">--ink</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--soft)"></div>
+          <div class="swatch__name">--soft</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--faint)"></div>
+          <div class="swatch__name">--faint</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--rule)"></div>
+          <div class="swatch__name">--rule</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--accent)"></div>
+          <div class="swatch__name">--accent</div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: var(--green)"></div>
+          <div class="swatch__name">--green</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="type-heading">
+      <h2 class="section-title" id="type-heading">Typography — 8</h2>
+
+      <div class="specimen">
+        <div class="specimen__sample type-display">Display</div>
+        <p class="specimen__meta">
+          <code>--text-display</code> · <code>--text-display-color</code> ·
+          <code>--text-display-tracking</code> ·
+          <code>--text-display-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-title">Title</div>
+        <p class="specimen__meta">
+          <code>--text-title</code> · <code>--text-title-color</code> ·
+          <code>--text-title-tracking</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-body">
+          Body — long-form copy at comfortable reading size with soft color for
+          secondary emphasis.
+        </div>
+        <p class="specimen__meta">
+          <code>--text-body</code> · <code>--text-body-color</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-body-md">
+          Body md — list row base size
+        </div>
+        <p class="specimen__meta">
+          <code>--text-body-md</code> · <code>--text-body-md-color</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-label-strong">Label strong</div>
+        <p class="specimen__meta">
+          <code>--text-label-strong</code> ·
+          <code>--text-label-strong-color</code> ·
+          <code>--text-label-strong-tracking</code> ·
+          <code>--text-label-strong-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-body-md">
+          <span class="type-label-strong">Chapterly</span>
+          <span class="type-label-muted">via Emergence Engineering</span>
+        </div>
+        <p class="specimen__meta">
+          <code>--text-label-muted</code> ·
+          <code>--text-label-muted-color</code> ·
+          <code>--text-label-muted-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-mono">Mono — 2025 — now</div>
+        <p class="specimen__meta">
+          <code>--text-mono</code> · <code>--text-mono-color</code> ·
+          <code>--text-mono-tracking</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-mono-sm">
+          Mono sm — potapovmax.com
+        </div>
+        <p class="specimen__meta">
+          <code>--text-mono-sm</code> · <code>--text-mono-sm-color</code> ·
+          <code>--text-mono-sm-tracking</code>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="links-heading">
+      <h2 class="section-title" id="links-heading">Links — 3</h2>
+
+      <div class="specimen">
+        <div class="specimen__sample">
+          <a class="link-default" href="#">Default link</a>
+        </div>
+        <p class="specimen__meta">
+          <code>--link-default</code> · <code>--link-default-color</code> ·
+          <code>--link-default-color-hover</code> ·
+          <code>--link-default-tracking</code> ·
+          <code>--link-default-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample">
+          <a class="link-accent" href="#">Accent link</a>
+        </div>
+        <p class="specimen__meta">
+          <code>--link-accent</code> · <code>--link-accent-color</code> ·
+          <code>--link-accent-tracking</code> ·
+          <code>--link-accent-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample">
+          <a class="link-secondary" href="#">Secondary link</a>
+        </div>
+        <p class="specimen__meta">
+          <code>--link-secondary</code> · <code>--link-secondary-color</code> ·
+          <code>--link-secondary-color-hover</code> ·
+          <code>--link-secondary-arrow-color</code> ·
+          <code>--link-secondary-arrow-color-hover</code> ·
+          <code>--link-secondary-tracking</code>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="surface-heading">
+      <h2 class="section-title" id="surface-heading">
+        Spacing &amp; surface — 8
+      </h2>
+      <ul class="surface-list">
+        <li>
+          <code>--space-page-y-top</code> · <code>--space-page-y-bottom</code> ·
+          <code>--space-page-x</code>
+        </li>
+        <li>
+          <code>--space-section</code> · <code>--space-section-lg</code> ·
+          <code>--space-section-sm</code> · <code>--space-row</code>
+        </li>
+        <li><code>--border-heavy</code> · <code>--border-light</code></li>
+        <li><code>--duration-fast</code> · <code>--duration-link</code></li>
+      </ul>
+      <div class="surface-demo">Heavy border (--border-heavy)</div>
+      <div class="surface-demo surface-demo--light">
+        Light border (--border-light)
+      </div>
+    </section>
+  </body>
+</html>
