@@ -5,6 +5,7 @@ Static HTML/CSS portfolio.
 ## Local preview
 
 python3 -m http.server 8080
+
 # open http://localhost:8080
 
 ## Deploy

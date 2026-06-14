@@ -1,0 +1,3 @@
+{
+  "ignorePatterns": [".agents/**", "dist/**", "node_modules/**", "public/**", "pnpm-lock.yaml"]
+}

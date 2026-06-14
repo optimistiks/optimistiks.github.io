@@ -118,8 +118,7 @@ body::after {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: var(--space-page-y-top) var(--space-page-x)
-    var(--space-page-y-bottom);
+  padding: var(--space-page-y-top) var(--space-page-x) var(--space-page-y-bottom);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -183,11 +182,7 @@ body::after {
 
 @media (prefers-color-scheme: dark) {
   .hero__photo {
-    background: repeating-linear-gradient(
-      45deg,
-      #1e1e1d 0 6px,
-      #191918 6px 12px
-    );
+    background: repeating-linear-gradient(45deg, #1e1e1d 0 6px, #191918 6px 12px);
   }
 }
 
