@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "Archivo";
-  src: url("../assets/fonts/archivo-v25-latin/archivo-v25-latin-regular.woff2")
+  src: url("/assets/fonts/archivo-v25-latin/archivo-v25-latin-regular.woff2")
     format("woff2");
   font-weight: 400;
   font-style: normal;
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "Archivo";
-  src: url("../assets/fonts/archivo-v25-latin/archivo-v25-latin-600.woff2")
+  src: url("/assets/fonts/archivo-v25-latin/archivo-v25-latin-600.woff2")
     format("woff2");
   font-weight: 600;
   font-style: normal;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Archivo";
-  src: url("../assets/fonts/archivo-v25-latin/archivo-v25-latin-700.woff2")
+  src: url("/assets/fonts/archivo-v25-latin/archivo-v25-latin-700.woff2")
     format("woff2");
   font-weight: 700;
   font-style: normal;
@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("../assets/fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-regular.woff2")
+  src: url("/assets/fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-regular.woff2")
     format("woff2");
   font-weight: 400;
   font-style: normal;
