@@ -56,19 +56,13 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--duration-fast);
+  height: 1px;
+  background: currentColor;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
     color: var(--link-default-color-hover);
-  }
-  .link:hover::after {
-    transform: scaleX(1);
   }
 }
 
@@ -89,7 +83,10 @@ body::after {
   color: var(--link-secondary-color);
   letter-spacing: var(--link-secondary-tracking);
   text-transform: var(--link-secondary-transform);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
   transition: color var(--duration-link);
 }
 
@@ -97,6 +94,7 @@ body::after {
   content: "↗";
   margin-left: 0.2em;
   color: var(--link-secondary-arrow-color);
+  display: inline-block;
   transition: color var(--duration-link);
 }
 
@@ -220,15 +218,14 @@ body::after {
 .experience {
   display: flex;
   flex-direction: column;
+  gap: var(--space-stack);
 }
 
 .job {
   display: grid;
   grid-template-columns: 140px minmax(0, 1fr) auto;
   gap: 6px 28px;
-  align-items: baseline;
-  padding: var(--space-row);
-  border-top: var(--border-light);
+  align-items: start;
   font: var(--text-body-md);
   color: var(--text-body-md-color);
   transition: transform var(--duration-fast);
@@ -273,6 +270,14 @@ a.job__company-note {
   text-transform: var(--text-label-muted-transform);
 }
 
+.job__caption {
+  font: var(--text-caption);
+  color: var(--text-caption-color);
+  margin-top: 8px;
+  max-width: 36em;
+  text-wrap: pretty;
+}
+
 .job__title {
   color: var(--soft);
 }
@@ -289,8 +294,7 @@ a.job__company-note {
 /* ── contacts ────────────────────────────────────────── */
 .contacts {
   margin-top: auto;
-  padding-top: 22px;
-  border-top: var(--border-heavy);
+  padding-top: var(--space-section);
   display: flex;
   gap: 16px 40px;
   flex-wrap: wrap;
@@ -342,7 +346,6 @@ a.job__company-note {
   }
   .job {
     grid-template-columns: minmax(0, 1fr);
-    padding: var(--space-row) 0 16px;
   }
   .job__years {
     order: -1;
@@ -354,6 +357,7 @@ a.job__company-note {
   .contacts {
     flex-direction: column;
     gap: 14px;
+    align-items: self-start;
   }
   .contacts__link--resume {
     margin-left: 0;

@@ -8,13 +8,14 @@
    Colors (7)
      --bone, --ink, --soft, --faint, --rule, --accent, --green
 
-   Typography (8 text styles)
+   Typography (9 text styles)
      --text-display       Hero name — large uppercase display
      --text-title         Section titles — semibold heading
      --text-body          Long-form copy — soft color
      --text-body-md       List row base — 17px body
      --text-label-strong  Emphasized labels — bold uppercase
      --text-label-muted   De-emphasized inline labels
+     --text-caption       Supporting copy — 14px soft text
      --text-mono          Meta labels — mono 13px
      --text-mono-sm       Fine print — mono 12px
 
@@ -28,7 +29,7 @@
 
    Spacing & surface (8 tokens)
      --space-page-y-top, --space-page-y-bottom, --space-page-x
-     --space-section, --space-section-lg, --space-row
+     --space-section, --space-section-lg, --space-section-sm, --space-stack
      --border-heavy, --border-light
      --duration-fast, --duration-link
    ─────────────────────────────────────────────────────── */
@@ -104,6 +105,12 @@
   --text-label-muted-tracking: normal;
   --text-label-muted-transform: none;
 
+  /* caption */
+  --text-caption: 400 14px / 1.45 var(--sans);
+  --text-caption-color: var(--soft);
+  --text-caption-tracking: normal;
+  --text-caption-transform: none;
+
   /* mono */
   --text-mono: 400 13px / normal var(--mono);
   --text-mono-color: var(--faint);
@@ -149,7 +156,7 @@
   --space-section: clamp(36px, 6vh, 56px);
   --space-section-lg: clamp(40px, 7vh, 64px);
   --space-section-sm: clamp(24px, 4vh, 36px);
-  --space-row: 14px 0;
+  --space-stack: clamp(24px, 3vh, 36px);
 
   --border-heavy: 2px solid var(--ink);
   --border-light: 1px solid var(--rule);

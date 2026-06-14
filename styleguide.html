@@ -150,6 +150,12 @@
         letter-spacing: var(--text-mono-tracking);
       }
 
+      .type-caption {
+        font: var(--text-caption);
+        color: var(--text-caption-color);
+        max-width: 36em;
+      }
+
       .type-mono-sm {
         font: var(--text-mono-sm);
         color: var(--text-mono-sm-color);
@@ -177,19 +183,13 @@
         left: 0;
         right: 0;
         bottom: 0;
-        height: 2px;
-        background: var(--accent);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform var(--duration-fast);
+        height: 1px;
+        background: currentColor;
       }
 
       @media (hover: hover) and (pointer: fine) {
         .link:hover {
           color: var(--link-default-color-hover);
-        }
-        .link:hover::after {
-          transform: scaleX(1);
         }
       }
 
@@ -206,7 +206,10 @@
         color: var(--link-secondary-color);
         letter-spacing: var(--link-secondary-tracking);
         text-transform: var(--link-secondary-transform);
-        text-decoration: none;
+        text-decoration: underline;
+        text-decoration-color: currentColor;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
         transition: color var(--duration-link);
       }
 
@@ -214,6 +217,7 @@
         content: "↗";
         margin-left: 0.2em;
         color: var(--link-secondary-arrow-color);
+        text-decoration: none;
         transition: color var(--duration-link);
       }
 
@@ -296,7 +300,7 @@
     </section>
 
     <section aria-labelledby="type-heading">
-      <h2 class="section-title" id="type-heading">Typography — 8</h2>
+      <h2 class="section-title" id="type-heading">Typography — 9</h2>
 
       <div class="specimen">
         <div class="specimen__sample type-display">Display</div>
@@ -353,6 +357,16 @@
           <code>--text-label-muted</code> ·
           <code>--text-label-muted-color</code> ·
           <code>--text-label-muted-transform</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample type-caption">
+          a word processor where ai helps you bring your best work and not
+          generate slop for you.
+        </div>
+        <p class="specimen__meta">
+          <code>--text-caption</code> · <code>--text-caption-color</code>
         </p>
       </div>
 
@@ -430,7 +444,7 @@
         </li>
         <li>
           <code>--space-section</code> · <code>--space-section-lg</code> ·
-          <code>--space-section-sm</code> · <code>--space-row</code>
+          <code>--space-section-sm</code> · <code>--space-stack</code>
         </li>
         <li><code>--border-heavy</code> · <code>--border-light</code></li>
         <li><code>--duration-fast</code> · <code>--duration-link</code></li>
