@@ -1,6 +1,11 @@
-This favicon was generated using the following font:
+Max Potapov — Senior Front-End Engineer
+https://potapovmax.com/
 
-- Font Title: Archivo
-- Font Author: undefined
-- Font Source: https://fonts.gstatic.com/s/archivo/v24/k3k6o8UDI-1M0wlSV9XAw6lQkqWY8Q82sJaRE-NWIDdgffTTnTRp8B1oJ0vyVQ.ttf
-- Font License: undefined)
+Front-end engineer by craft, product engineer by heart. Comfortable operating
+across the stack. Building SaaS for 10+ years on distributed teams across the
+US and Europe. Based in Tbilisi, Georgia (GMT+4).
+
+Contact
+  mail@potapovmax.com
+  https://linkedin.com/in/potapovmax
+  https://github.com/optimistiks
