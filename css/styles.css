@@ -3,7 +3,7 @@
    BEM convention: block__element--modifier
    Tokens: css/tokens.css
    Blocks: page, topline, hero, summary, experience, job,
-           contacts, colophon, reveal (animation utility)
+           contacts, colophon, link, reveal (animation utility)
    ════════════════════════════════════════════════════════ */
 
 /* ── Base ────────────────────────────────────────────── */
@@ -42,19 +42,15 @@ body::after {
   }
 }
 
-/* ── Shared link patterns ────────────────────────────── */
-:is(.contacts__link) {
-  font: var(--link-default);
-  color: var(--link-default-color);
-  letter-spacing: var(--link-default-tracking);
-  text-transform: var(--link-default-transform);
+/* ── link (interaction only) ───────────────────────── */
+.link {
   text-decoration: none;
   position: relative;
   padding-bottom: 3px;
   transition: color var(--duration-link);
 }
 
-:is(.contacts__link)::after {
+.link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -68,16 +64,24 @@ body::after {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :is(.contacts__link):hover {
+  .link:hover {
     color: var(--link-default-color-hover);
   }
-  :is(.contacts__link):hover::after {
+  .link:hover::after {
     transform: scaleX(1);
   }
 }
 
-:is(.contacts__link):active {
+.link:active {
   opacity: 0.7;
+}
+
+/* ── Shared link typography ──────────────────────────── */
+.contacts__link {
+  font: var(--link-default);
+  color: var(--link-default-color);
+  letter-spacing: var(--link-default-tracking);
+  text-transform: var(--link-default-transform);
 }
 
 :is(.job__article-link) {
@@ -245,6 +249,15 @@ body::after {
   letter-spacing: var(--text-mono-tracking);
   white-space: nowrap;
   transition: color var(--duration-fast);
+}
+
+.job__company-col {
+  min-width: 0;
+}
+
+a.job__company,
+a.job__company-note {
+  display: inline-block;
 }
 
 .job__company {

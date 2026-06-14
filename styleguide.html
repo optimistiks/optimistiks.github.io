@@ -161,13 +161,17 @@
         color: var(--link-default-color);
         letter-spacing: var(--link-default-tracking);
         text-transform: var(--link-default-transform);
+      }
+
+      .link {
         text-decoration: none;
         position: relative;
         padding-bottom: 3px;
         display: inline-block;
+        transition: color var(--duration-link);
       }
 
-      .link-default::after {
+      .link::after {
         content: "";
         position: absolute;
         left: 0;
@@ -181,10 +185,10 @@
       }
 
       @media (hover: hover) and (pointer: fine) {
-        .link-default:hover {
+        .link:hover {
           color: var(--link-default-color-hover);
         }
-        .link-default:hover::after {
+        .link:hover::after {
           transform: scaleX(1);
         }
       }
@@ -253,8 +257,8 @@
     <h1>Design system</h1>
     <p class="intro">
       Token reference for potapovmax.com. Open <code>css/tokens.css</code> for
-      the full catalog comment. Blocks consume tokens via <code>var()</code> —
-      no utility classes in HTML.
+      the full catalog comment. Typography via tokens; primary link interaction
+      via the <code>.link</code> block stacked on any styled anchor.
     </p>
 
     <section aria-labelledby="colors-heading">
@@ -372,28 +376,35 @@
     </section>
 
     <section aria-labelledby="links-heading">
-      <h2 class="section-title" id="links-heading">Links — 3</h2>
+      <h2 class="section-title" id="links-heading">Links — 3 + .link</h2>
 
       <div class="specimen">
         <div class="specimen__sample">
-          <a class="link-default" href="#">Default link</a>
+          <a class="link-default link" href="#">Default link</a>
         </div>
         <p class="specimen__meta">
-          <code>--link-default</code> · <code>--link-default-color</code> ·
-          <code>--link-default-color-hover</code> ·
-          <code>--link-default-tracking</code> ·
-          <code>--link-default-transform</code>
+          <code>--link-default</code> + <code>.link</code> ·
+          <code>--link-default-color-hover</code> on hover
         </p>
       </div>
 
       <div class="specimen">
         <div class="specimen__sample">
-          <a class="link-accent" href="#">Accent link</a>
+          <a class="link-accent link" href="#">Accent link</a>
         </div>
         <p class="specimen__meta">
-          <code>--link-accent</code> · <code>--link-accent-color</code> ·
-          <code>--link-accent-tracking</code> ·
-          <code>--link-accent-transform</code>
+          <code>--link-accent</code> + <code>.link</code>
+        </p>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen__sample">
+          <a class="type-label-strong link" href="#">Company link</a> via
+          <a class="type-label-muted link" href="#">Agency name</a>
+        </div>
+        <p class="specimen__meta">
+          <code>--text-label-strong</code> / <code>--text-label-muted</code> +
+          <code>.link</code>
         </p>
       </div>
 
@@ -402,11 +413,8 @@
           <a class="link-secondary" href="#">Secondary link</a>
         </div>
         <p class="specimen__meta">
-          <code>--link-secondary</code> · <code>--link-secondary-color</code> ·
-          <code>--link-secondary-color-hover</code> ·
-          <code>--link-secondary-arrow-color</code> ·
-          <code>--link-secondary-arrow-color-hover</code> ·
-          <code>--link-secondary-tracking</code>
+          <code>--link-secondary</code> — no <code>.link</code>; arrow
+          interaction only
         </p>
       </div>
     </section>

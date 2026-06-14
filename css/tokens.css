@@ -18,10 +18,13 @@
      --text-mono          Meta labels — mono 13px
      --text-mono-sm       Fine print — mono 12px
 
-   Links (3 styles)
-     --link-default       Nav links — uppercase with underline hover
-     --link-accent        Accent-colored link (no hover color shift)
+   Links (3 styles) — pair with .link block for primary interaction
+     --link-default       Nav links — uppercase typography
+     --link-accent        Accent-colored link typography
      --link-secondary     Citation links — mono, faint, trailing arrow
+
+   Interaction (css/styles.css)
+     .link                 Underline hover + accent color; no typography
 
    Spacing & surface (8 tokens)
      --space-page-y-top, --space-page-y-bottom, --space-page-x
