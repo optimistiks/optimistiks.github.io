@@ -1,9 +1,7 @@
-Max Potapov — Senior Front-End Engineer
-https://potapovmax.com/
+max potapov — senior front-end engineer
+https://potapovmax.com
 
-Front-end engineer by craft, product engineer by heart. Comfortable operating
-across the stack. Building SaaS for 10+ years on distributed teams across the
-US and Europe. Based in Tbilisi, Georgia (GMT+4).
+10+ years building SaaS in distributed teams across the US and Europe. 5+ years on collaborative, rich-text editing web apps powered by ProseMirror. comfortable across the full stack. embracing AI and still having fun
 
 Contact
   mail@potapovmax.com
